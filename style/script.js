@@ -54,13 +54,13 @@ function results() {
      upperCaseConfirm =confirm("Would you like upper case letters in your password?");
      specSymbConfirm = confirm ("Would you like to include special characters in your password?");
 
-}
 
 //store there response in a variable
 if (!specSymbConfirm && !numbersConfirm && !lowerCaseConfirm && !upperCaseConfirm) {
+   
     alert("Selection Required");
-    
-    return true;
+
+    return;
 
 } else {
 if (numbersConfirm) 
@@ -88,14 +88,4 @@ for (i=0, i< userInput; i++;) {
     results= Math.floor(Math.random()*selections.length);
     randomizer += selections[results]
 }
-
-
-
-
-
-
-
-//that var += theRandomChar
-//return the password var */
-
 

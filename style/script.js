@@ -11,56 +11,61 @@ function writePassword() {
 
 }
 
+//Create Arrays
+
 generateBtn.addEventListener("click", writePassword);
 
-var specSymb = ["!","@","#","$","%","^","&","*","(",")","_","-","+","="];
+var specSymb = '!@#$%^&*()-_+='.split(' ');
 console.log(specSymb);
 
-var lowerCase = ['abcdefghijklmnopqrstuvwxyz'.split(' ')];
+var lowerCase = 'abcdefghijklmnopqrstuvwxyz'.split(' ');
 console.log(lowerCase);
 
-var upperCase = ['ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split(' ')];
+var upperCase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split(' ');
 console.log(upperCase);
 
-var numbers = ['123456789'.split(' ')];
+var numbers = '123456789'.split(' ');
+console.log(numbers);
 
 //make generatePassword function
+//prompt for password length is a number
+    //if statment if number is above 8 && below 128
 
 function generatePassword() {
     userInput = prompt("Enter number of characters between 8 and 128 for new password");
-     console.log(user.Input+ ",Selected");
+     console.log(user.Input + ",Selected");
     
     if (!userInput) {
         alert("ERROR: Input required");
     }
     
     else if (passwordLength(x) ||x <8 , x >128) {
-        ("Selection must be more than 8, Less than 128");
+       userInput = alert ("Selection must be more than 8, Less than 128");
     
-    console.log(userInput+ ",Selected");
+    console.log(userInput + ",Selected");
     return;
- }
+ 
+    }
 }
 
-
-//prompt for password length is a number
-    //if statment if number is above 8 && below 128
-
 //confirm for lowercase, uppercase, numeric and special characters
+//store there response in a variable
 
 function results() {
-     numbersConfirm = confirm("Would you like numbers in your password?");
+     numbersConfirm = confirm("Would you like numbers in your password?")
+     console.log("Numbers are " + numbersConfirm)
      lowerCaseConfirm =confirm("Would you like lowercase letters in your password?");
+     console.log("Lowercase is " + lowerCaseConfirm)
      upperCaseConfirm =confirm("Would you like upper case letters in your password?");
+     console.log("Uppercase is " + upperCaseConfirm)
      specSymbConfirm = confirm ("Would you like to include special characters in your password?");
+     console.log("Special characters are " + specSymbConfirm)
+}
 
-
-//store there response in a variable
-if (!specSymbConfirm && !numbersConfirm && !lowerCaseConfirm && !upperCaseConfirm) {
+if (!specSymbConfirm && !numbersConfirm && !lowerCaseConfirm && !upperCaseConfirm < 1) {
    
     alert("Selection Required");
-
-    return;
+        return
 
 } else {
 if (numbersConfirm) 
@@ -81,11 +86,11 @@ if (specSymbConfirm) {
  results();
 
 //pull random characters from the array using math.random 
-//have a var declared above for loop
 
 randomizer = '';
 for (i=0, i< userInput; i++;) {
-    results= Math.floor(Math.random()*selections.length);
-    randomizer += selections[results]
-}
+    final= Math.floor(Math.random()*selections.length);
+    randomizer += selections[final]
+return randomizer
 
+}

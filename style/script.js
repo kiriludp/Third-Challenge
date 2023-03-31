@@ -1,6 +1,21 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
+
+specSymb = ["!","@","#","$","%","^","&","*","(",")","-","_","=","+"];
+console.log(specSymb)
+
+lowerCase = 'abcdefghijklmnopqrstuvwxyz'.split('');
+console.log(lowerCase)
+
+upperCase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+console.log(upperCase)
+
+numbers = [1,2,3,4,5,6,7,8,9,0];
+console.log(numbers);
+
+selections= [];
+
 // Write password to the #password input
 
 function writePassword() {
@@ -11,86 +26,77 @@ function writePassword() {
 
 }
 
-//Create Arrays
-
 generateBtn.addEventListener("click", writePassword);
 
-var specSymb = '!@#$%^&*()-_+='.split(' ');
-console.log(specSymb);
-
-var lowerCase = 'abcdefghijklmnopqrstuvwxyz'.split(' ');
-console.log(lowerCase);
-
-var upperCase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split(' ');
-console.log(upperCase);
-
-var numbers = '123456789'.split(' ');
-console.log(numbers);
 
 //make generatePassword function
 //prompt for password length is a number
     //if statment if number is above 8 && below 128
 
 function generatePassword() {
-    userInput = prompt("Enter number of characters between 8 and 128 for new password");
-     console.log(user.Input + ",Selected");
+    userInput = prompt("Enter number of characters between 8 and 128")
+     console.log(userInput+ ",Selected");
     
     if (!userInput) {
-        alert("ERROR: Input required");
+       userInput = alert("ERROR: Input required");
     }
+
+    else if (userInput <8 || userInput >128) {
+       userInput = alert("Selection must be more than 8, Less than 128");
     
-    else if (passwordLength(x) ||x <8 , x >128) {
-       userInput = alert ("Selection must be more than 8, Less than 128");
-    
-    console.log(userInput + ",Selected");
+    console.log(userInput+ ",Selected");
     return;
- 
     }
-}
+    
 
 //confirm for lowercase, uppercase, numeric and special characters
 //store there response in a variable
 
-function results() {
+function results () {
      numbersConfirm = confirm("Would you like numbers in your password?")
-     console.log("Numbers are " + numbersConfirm)
-     lowerCaseConfirm =confirm("Would you like lowercase letters in your password?");
+     console.log("Numbers are " + numbersConfirm) 
+     lowerCaseConfirm =confirm("Would you like lowercase letters in your password?")
      console.log("Lowercase is " + lowerCaseConfirm)
-     upperCaseConfirm =confirm("Would you like upper case letters in your password?");
+     upperCaseConfirm =confirm("Would you like upper case letters in your password?")
      console.log("Uppercase is " + upperCaseConfirm)
-     specSymbConfirm = confirm ("Would you like to include special characters in your password?");
+     specSymbConfirm = confirm ("Would you like to include special characters in your password?")
      console.log("Special characters are " + specSymbConfirm)
-}
 
-if (!specSymbConfirm && !numbersConfirm && !lowerCaseConfirm && !upperCaseConfirm < 1) {
+
+if (!specSymbConfirm && !numbersConfirm && !lowerCaseConfirm && !upperCaseConfirm) {
    
-    alert("Selection Required");
-        return
+    alert("ERROR: Selection Required");
+        return;
 
 } else {
-if (numbersConfirm) 
-    selections = selections.concat (numbers);
-}
-if (lowerCaseConfirm) {
-    selections = selections.concat (lowerCase);
-}
+    if (numbersConfirm) {
+    selections = selections.concat(numbers);
+    }
+    if (lowerCaseConfirm) {
+    selections = selections.concat(lowerCase);
+    }   
 
-if (upperCaseConfirm) {
-    selections = selection.concat (upperCase);
-}
+    if (upperCaseConfirm) {
+    selections = selections.concat(upperCase);
+    }
 
-if (specSymbConfirm) {
-    selections = selection.concat (specSymb);
+    if (specSymbConfirm) {
+    selections = selections.concat(specSymb);
+    }
 }
- console.log(selections);
+    }   
+ console.log(selections)
  results();
 
-//pull random characters from the array using math.random 
+//pull random characters from the array using math.random
 
 randomizer = '';
-for (i=0, i< userInput; i++;) {
+for (i=0; i< userInput; i++) {
     final= Math.floor(Math.random()*selections.length);
     randomizer += selections[final]
-return randomizer
 
 }
+    return randomizer
+
+}
+
